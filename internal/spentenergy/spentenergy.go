@@ -14,9 +14,18 @@ const (
 )
 
 func WalkingSpentCalories(steps int, weight, height float64, duration time.Duration) (float64, error) {
-	// проверяем входные параметры
-	if steps <= 0 || weight <= 0 || height <= 0 || duration <= 0 {
-		return 0, errors.New("некорректные входные параметры")
+	// проверяем каждый параметр отдельно
+	if steps <= 0 {
+		return 0, errors.New("количество шагов должно быть больше 0")
+	}
+	if weight <= 0 {
+		return 0, errors.New("вес должен быть больше 0")
+	}
+	if height <= 0 {
+		return 0, errors.New("рост должен быть больше 0")
+	}
+	if duration <= 0 {
+		return 0, errors.New("длительность должна быть больше 0")
 	}
 
 	meanSpeed := MeanSpeed(steps, height, duration)
@@ -27,8 +36,18 @@ func WalkingSpentCalories(steps int, weight, height float64, duration time.Durat
 }
 
 func RunningSpentCalories(steps int, weight, height float64, duration time.Duration) (float64, error) {
-	if steps <= 0 || weight <= 0 || height <= 0 || duration <= 0 {
-		return 0, errors.New("некорректные входные параметры")
+	// проверяем каждый параметр отдельно
+	if steps <= 0 {
+		return 0, errors.New("количество шагов должно быть больше 0")
+	}
+	if weight <= 0 {
+		return 0, errors.New("вес должен быть больше 0")
+	}
+	if height <= 0 {
+		return 0, errors.New("рост должен быть больше 0")
+	}
+	if duration <= 0 {
+		return 0, errors.New("длительность должна быть больше 0")
 	}
 
 	meanSpeed := MeanSpeed(steps, height, duration)
